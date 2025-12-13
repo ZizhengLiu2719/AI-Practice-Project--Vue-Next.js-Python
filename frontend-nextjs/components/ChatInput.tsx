@@ -80,7 +80,7 @@ export default function ChatInput({ onSendMessage, isLoading }: ChatInputProps) 
                 className={styles.sendButton}
                 disabled={!input.trim() || isLoading}
             >
-                {isLoading ? 'sending' : 'finish sending'}
+                {isLoading ? 'sending' : 'sent 📤'}
             </button>
         </form>
     );
