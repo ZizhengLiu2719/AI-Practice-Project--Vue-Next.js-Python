@@ -1,0 +1,1 @@
+<!-- Transaction chart visualization component -->

@@ -1,0 +1,1 @@
+<!-- Main Vue application component -->
