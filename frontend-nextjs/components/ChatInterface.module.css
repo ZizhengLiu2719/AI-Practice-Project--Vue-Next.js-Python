@@ -1,0 +1,78 @@
+/* 聊天界面容器 */
+.chatInterface {
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  /* 头部 */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  .header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  /* 状态指示器 */
+  .statusIndicator {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .loading::before,
+  .idle::before,
+  .error::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .loading::before {
+    background: #ffd700;
+    animation: pulse 1.5s infinite;
+  }
+  
+  .idle::before {
+    background: #4ade80;
+  }
+  
+  .error::before {
+    background: #ef4444;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .chatInterface {
+      height: 100vh;
+      max-width: 100%;
+      border-radius: 0;
+    }
+  }
