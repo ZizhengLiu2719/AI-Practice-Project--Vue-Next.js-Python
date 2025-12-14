@@ -26,7 +26,7 @@ class Message(BaseModel):
 #chat request modal
 class ChatRequest(BaseModel):
     #chat request from client
-    messages: str = Field(..., min_length=1, max_length=1000)
+    message: str = Field(..., min_length=1, max_length=1000)
     #... means the message is required and must be a string between 1 and 1000 characters
     
     class Config:
