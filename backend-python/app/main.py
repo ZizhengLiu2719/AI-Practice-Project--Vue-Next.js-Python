@@ -54,7 +54,7 @@ async def root():
 async def chat(request: ChatRequest):
     try:
         #1.get the user message from the request
-        user_message = request.messages
+        user_message = request.message
         
         #2.situmate the thinking process
         time.sleep(1)

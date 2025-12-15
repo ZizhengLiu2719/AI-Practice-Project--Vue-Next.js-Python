@@ -1,6 +1,7 @@
 // Main chat interface component
 import { useEffect, useRef, useState } from 'react';
 import { ChatState, Message } from '../types/chat';
+import { sendChatMessage } from '../utils/api';
 import ChatInput from './ChatInput';
 import styles from './ChatInterface.module.css';
 import MessageList from './MessageList';
@@ -40,7 +41,7 @@ export default function ChatInterface() {
     try {
     // 4. call the backend API (use mock data for now)
     // TODO: later will be replaced with the real API call
-      const response = await mockAPICall(content);
+      const response = await sendChatMessage(content);
 
       // 5. create the assistant message
       const assistantMessage: Message = {
@@ -71,22 +72,6 @@ export default function ChatInterface() {
       // 3 seconds later, restore the idle state
       setTimeout(() => setStatus('idle'), 3000);
     }
-  };
-
-  // mock API call (return Promise)
-  const mockAPICall = (message: string): Promise<string> => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        // simple reply logic
-        if (message.includes('交易') || message.includes('支付')) {
-          resolve('hi! i can help you query the transaction records and payment information. please tell me which time period you want to query.');
-        } else if (message.includes('余额')) {
-          resolve('your current balance is ¥12,345.67. please tell me the specific account if you need more information.');
-        } else {
-          resolve('hi! i am your smart payment assistant. i can help you with your payment questions. please tell me what you need help with.');
-        }
-      }, 1000);  // mock 1 second delay
-    });
   };
 
   // Effect: when the messages update, scroll to the bottom
